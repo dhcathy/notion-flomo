@@ -70,7 +70,7 @@ class Flomo2Notion:
             "标签": notion_utils.get_multi_select(
                 memo['tags']
             ),
-            "是否置顶": notion_utils.get_select("否" if memo['pin'] == 0 else "是"),
+            # "是否置顶": notion_utils.get_select("否" if memo['pin'] == 0 else "是"),
         }
         page = self.notion_helper.client.pages.update(page_id=page_id, properties=properties)
 
