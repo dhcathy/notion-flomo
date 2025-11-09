@@ -31,7 +31,7 @@ class Flomo2Notion:
             "标签": notion_utils.get_multi_select(
                 memo['tags']
             ),
-            "是否置顶": notion_utils.get_select("否" if memo['pin'] == 0 else "是"),
+            # "是否置顶": notion_utils.get_select("否" if memo['pin'] == 0 else "是"),
             # 文件的处理方式待定
             # "文件": notion_utils.get_file(""),
             # slug是文章唯一标识
