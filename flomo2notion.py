@@ -102,6 +102,10 @@ class Flomo2Notion:
 
         # 3. 轮询flomo的列表数据
         for memo in memo_list:
+            # 跳过已删除的笔记
+            if memo.get('deleted_at'):
+                print(f"跳过已删除的笔记: {memo['slug']}")
+                continue
             # 3.1 判断memo的slug是否存在，不存在则写入
             # 3.2 防止大批量更新，只更新更新时间为制定时间的数据（默认为7天）
             if memo['slug'] in slug_map.keys():
