@@ -1,5 +1,6 @@
 import logging
 import os
+import time
 
 from dotenv import load_dotenv
 from notion_client import Client
@@ -90,8 +91,10 @@ class NotionHelper:
                 page_size=100,
             )
             start_cursor = response.get("next_cursor")
-            has_more = response.get("has_more")
+            has_more = response.get("has_more",False)
             results.extend(response.get("results"))
+            if has_more:
+                time.sleep(0.5)
         return results
 
 
