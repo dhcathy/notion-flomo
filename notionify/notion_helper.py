@@ -88,13 +88,13 @@ class NotionHelper:
             response = self.client.databases.query(
                 database_id=database_id,
                 start_cursor=start_cursor,
-                page_size=100,
+                page_size=50,
             )
             start_cursor = response.get("next_cursor")
             has_more = response.get("has_more",False)
             results.extend(response.get("results"))
             if has_more:
-                time.sleep(0.5)
+                time.sleep(1.0)
         return results
 
 
